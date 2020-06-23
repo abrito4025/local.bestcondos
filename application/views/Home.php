@@ -283,7 +283,7 @@ b
 
           <div class="modal-body">
             <br><br><br><br>
-            <form class="" id="formLogin" action="" method="post">
+            <form class="" id="formLogin" action="<?php echo base_url(); ?>Home_Controller/login" method="post">
               <div>
                 <label></label>
                <input type="" name="" placeholder="Usuario">      

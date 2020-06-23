@@ -9,7 +9,7 @@ class Home_Controller extends CI_Controller {
 
 		parent::__construct();
 
-
+		$this->load->model('Role_model');
 
 	}
 
@@ -129,30 +129,14 @@ public function insertarCondominio()
 
 			$usuario = $this->input->post('usuario');
 			$password = $this->input->post('password');
-			$login = $this->Main_model->login($usuario, $password);
+			$login = $this->Role_model->login($usuario, $password);
 				
 				if ($login) {
-					if($this->session->_data['estatus'] !="D"){
-						if($this->session->_data['id'] == 1){ 
-								redirect('admin');
-			            }
-			            elseif($this->session->_data['id'] == 2){
-			                redirect('egresado');
-			            }
-			            elseif($this->session->_data['id'] == 3){
-			                if($this->session->_data['estatus'] == "p"){
-			                	echo json_encode( "Usuario no activo" );
-			                }
-			                else{
-								redirect('ver_vacantes');
-			                }
-						}
-		      			
-		      		}else{
-		      			redirect('egresado');
-		      		}
+					echo 'aqui'; exit;
+		      		redirect(base_url());
+		      		
 				}
-				else{
+				else{ echo 'no aqui'; exit;
 					$this->load->view('login');
 				}
 		
